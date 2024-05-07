@@ -1,8 +1,28 @@
-<div v-click="3"> visible after 3 clicks </div>
-<v-click at="2"><div> visible after 2 clicks </div></v-click>
-<div v-click.hide="1"> hidden after 1 click </div>
+## 简单认识下RPC
 
-```js {none|1|2}{at:3}
-1  // highlighted after 3 clicks
-2  // highlighted after 4 clicks
-```
+<style>
+  p {
+    font-size: 14px;
+  }
+</style>
+
+### ℹ️ 简介
+
+<p>
+  RPC、也叫远程过程调用（Remote Procedure Call）, 是一个计算机通信协议。
+   它允许跨进程调用，允许一台计算机中的进程，调用另一台计算机的进程;
+</p>
+<p>
+  简言之，“远程” 即  通过网络传输进行通信，而“过程” 也就是方法，方法的调用。
+</p>
+
+### 🛰️ 通信
+
+<p>
+  RPC的通信方式通过网络传输，一般的RPC框架会基于TCP，在TCP协议上进行封装,也有直接使用HTTP直接进行通信的、同时RPC的通信不需要注意网络通信的细节。
+  <br /> 归根结底，大部分RPC的通信方式也是通过建立TCP连接，以及发送HTTP请求来进行网络通信，也可以说RPC是介于传输层以及应用层之间的封装
+</p>
+
+### 👥 客户端、服务端
+
+这两者可以简单描述为调用方和被调用方，前者通过后者提供的接口进行参数方法序列化以及调用、后者则负责接收调用请求、对参数进行反序列化并执行、最终通过响应返回结果

@@ -1,4 +1,3 @@
 # What is the RPC ?
-### 什么是RPC ？
 
-
+<div class="text-ms text-[#c1c1c1]"> 什么是RPC ？</div>

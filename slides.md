@@ -27,5 +27,36 @@ src: ./pages/what-is-the-rpc-section.md
 ---
 
 ---
+transition: slide-up
 src: ./pages/what-is-the-rpc.md
+---
+
+---
+transition: slide-up
+src: ./pages/rpc-features.md
+---
+
+---
+transition: slide-left
+src: ./pages/rpc-calling.md
+---
+
+---
+layout: section
+transition: slide-up
+src: ./pages/server-action-and-rpc-section.md
+---
+
+---
+src: ./pages/server-action-example.md
+---
+
+---
+transition: slide-up
+src: ./pages/server-action-calling.md
+---
+
+---
+layout: "statement"
+src: ./pages/thanks.md
 ---
