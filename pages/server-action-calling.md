@@ -197,7 +197,7 @@ sequenceDiagram
 ```
 </div>
 	<div>
-		<img src="assets/rpc-calling.webp"/>
+		<img src="/rpc-calling.webp"/>
 	</div>
 </div>
 
