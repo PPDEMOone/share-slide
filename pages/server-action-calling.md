@@ -1,4 +1,4 @@
-## 编译、过程执行
+## 过程执行
 
 <style>
   *::-webkit-scrollbar {
@@ -18,12 +18,13 @@
 		max-height: 400px  !important;
 	} */
 </style>
+<!--
 <p v-click.hidden="[1,2]">
   ⛓️ 实现Server Action的RPC调用，有两个步骤，分别是 <span class="text-yellow-300">编译</span>、<span class="text-yellow-300">过程执行</span>
-</p>
+</p> -->
 
-<div class="grid grid-cols-2 gap-3 translate-y-[-40px] " >
-  <div v-click="[2,12]">
+<div class="grid grid-cols-2 gap-3 mt-[10px]" >
+  <div v-click="[0,12]">
 
 ```mermaid
 
@@ -184,7 +185,7 @@ rsc responce
   </div>
 </div>
 </div>
-<div class="grid grid-cols-2 gap-3 w-full translate-y-[-400px]" v-click="[12,13]">
+<div class="grid grid-cols-2 gap-3 w-full translate-y-[-340px]" v-click="12">
 <div>
 	
 ```mermaid
@@ -199,74 +200,4 @@ sequenceDiagram
 	<div>
 		<img src="/rpc-calling.webp"/>
 	</div>
-</div>
-
-<div v-click="13" class="translate-y-[-700px] w-full">
-
-```mermaid
-flowchart LR
-	subgraph "next-swc-loader"
-		subgraph pitch
-            transform["
-                swc code transform
-            "]
-
-     end
-	end
-
-	subgraph "flight-client-entry-plugin"
-		direction LR
-		subgraph finishMake
-      subgraph createClientEntries
-        collectClientActionsFromDependencies-->getActions
-      end
-		end
-		subgraph make
-			createAssets
-		end
-	end
-
-	subgraph "next-flight-client-module-loader"
-		rsc["webpack.Module.buildInfo.rsc = getRSCModuleInformation(source code)"]
-	  rsc-.-|buildInfo.rsc.actions|getActions
-    rsc-.-|generate assets by buildInfo.rsc.actions|createAssets
-		callServerNoop["inject callServer noop"]
-	end
-
-	subgraph "next-flight-action-entry-loader"
-		injectModule["
-            inject endpoint
-            export actions module"]
-	end
-
-	START-->next-swc-loader
-
-	START---flight-client-entry-plugin
-
-	next-swc-loader-->|curb|next-flight-client-module-loader
-
-  transform-.-|source code|rsc
-
-	next-flight-client-module-loader-.->next-flight-action-entry-loader
-
-	next-flight-client-module-loader~~~flight-client-entry-plugin
-
-  getActions-.-|add entry by actionEntryDep|injectModule
-
-  getActions-.-|"provides pluginState.serverActions when createAssets be called"|createAssets
-
-  next-flight-action-entry-loader-->createAssets
-
-  createAssets-.->json[
-   server-reference-manifest.js
-   server-reference-manifest.json
-  ]
-
-	flight-client-entry-plugin---END
-
-	next-flight-action-entry-loader-->END
-
-  injectModule-.->sourcecode
-```
-
 </div>

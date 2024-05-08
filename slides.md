@@ -53,7 +53,16 @@ src: ./pages/server-action-example.md
 
 ---
 transition: slide-up
+src: ./pages/server-action-calling-step.md
+---
+
+---
+transition: slide-up
 src: ./pages/server-action-calling.md
+---
+
+---
+src: ./pages/compile.md
 ---
 
 ---
